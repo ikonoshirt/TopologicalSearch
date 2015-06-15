@@ -1,0 +1,15 @@
+{
+  "name": "ikonoshirt/topological-search",
+  "description": "This module takes a library for topological sorting and fixes the broken algorithm to sort lots of stuff which has before and after dependencies, like totals in quote, order and creditmemo.",
+  "type": "magento-module",
+  "license": "BSD 3-clause",
+  "authors": [
+    {
+      "name": "Fabian Blechschmidt",
+      "email": "topological-search@fabian-blechschmidt.de"
+    }
+  ],
+  "require": {
+    "marcj/topsort": "~0.1"
+  }
+}
