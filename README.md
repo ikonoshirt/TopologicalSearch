@@ -22,3 +22,7 @@ The problem is, that magento doesn't load libraries, that use namespaces. But as
 
 # What this module is doing
 This module takes a library for topological sorting and fixes the broken algorithm to sort lots of stuff which has `before` and `after` dependencies, like totals in quote, order and creditmemo.
+
+
+#License
+My work is under BSD 3-clause. But be careful, I only changed the `\Mage_Sales_Model_Config_Ordered::_getSortedCollectorCodes` implementation and added the topological sorting to the class. The rest us copied from Magento version 1.9.1
