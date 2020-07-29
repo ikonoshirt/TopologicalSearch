@@ -1,4 +1,7 @@
 <?php
+
+require_once BP . '/vendor/autoload.php';
+
 /**
  * Configuration class for ordered items
  *
