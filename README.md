@@ -9,14 +9,14 @@ Unfortunately is the Magento bug in an abstract class, therefore we have to over
 
 
 # Installation
-## Install the library dependency
+## 1. Install the library dependency
 Install the library fro Marc J. Schmidt as a composer dependency by running `composer require marcj/topsort`
 
-## Install the Magento part
+## 2. Install the Magento part
 Install this repo via modman or copy the code from [src/app/code/local/Mage/Sales/Model/Config/Ordered.php](https://github.com/ikonoshirt/TopologicalSearch/blob/master/src/app/code/local/Mage/Sales/Model/Config/Ordered.php) to `app/code/local/Mage/Sales/Model/Config/Ordered.php` manually.
     
     
-# What this module is doing
+# What this module does
 This module takes a library for topological sorting and fixes the broken algorithm to sort lots of stuff which has `before` and `after` dependencies, like totals in quote, order and creditmemo.
 
 
