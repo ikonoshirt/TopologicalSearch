@@ -221,13 +221,18 @@ abstract class Mage_Sales_Model_Config_Ordered extends Mage_Core_Model_Config_Ba
             }
         }
         foreach ($collectDependencies as $code => $dependencies) {
-            $topSort->add($code, $dependencies);
+            // Remove dependencies on missing values to make dependencies "optional", that is if a module
+            // is installed, it will be respected in the sorting, if it isn't installed, it is ignored.
+            $presentDependencies = array_filter($dependencies, function ($dependency) use ($collectDependencies) {
+                return array_key_exists($dependency, $collectDependencies);
+            });
+            $topSort->add($code, $presentDependencies);
         }
-
-        if ($topSort->isThrowCircularDependency()) {
-            Mage::throwException(__CLASS__ . ' found a circular dependency. Please fix it.');
+        
+        try {
+            return $topSort->sort();
+        } catch (\Exception $exception) {
+            Mage::throwException(__CLASS__ . ' found a dependency error: ' . $exception->getMessage());
         }
-
-        return $topSort->sort();
     }
 }
