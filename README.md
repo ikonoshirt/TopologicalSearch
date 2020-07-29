@@ -18,8 +18,6 @@ Unfortunately is the bug in an abstract class, therefore we have to overwrite a 
      }
     }
     
-The problem is, that magento doesn't load libraries, that use namespaces. But as always, there is a [stackoverflow question, how to add the composer autoloader](http://magento.stackexchange.com/questions/1375/integrating-composers-autoloader-into-magento). I personally just added `require 'vendor/autoload.php';` to the first line of `index.php`. Not best practice, but our index.php is already edited, so it doesn't matter.
-
 # What this module is doing
 This module takes a library for topological sorting and fixes the broken algorithm to sort lots of stuff which has `before` and `after` dependencies, like totals in quote, order and creditmemo.
 
